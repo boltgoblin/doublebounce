@@ -1,0 +1,11 @@
+.input-text{
+	padding: 16px 20px;
+	border-radius: 8px;
+	outline: none;
+	text-align: center;
+	font-size: 40px;
+	font-family: WinterLemon;
+	color: #ffffff;
+	border: none;
+	background: #000000;
+}
