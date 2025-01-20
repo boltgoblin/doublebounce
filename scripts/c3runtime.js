@@ -4447,6 +4447,7 @@ self.C3.Plugins.MetaproPlugin.Cnds = {
 
 // scripts/plugins/MetaproPlugin/c3runtime/actions.js
 {
+<<<<<<< HEAD
 self.C3.Plugins.MetaproPlugin.Acts = {
   async RequestAccount() {
     await this._RequestAccount();
@@ -4566,6 +4567,127 @@ self.C3.Plugins.MetaproPlugin.Acts = {
     await this._SendCrypto(token_address, amount, receiver, chain_id);
   },
 };
+=======
+self.C3.Plugins.MetaproPlugin.Acts = {
+  async RequestAccount() {
+    await this._RequestAccount();
+  },
+  async Login(referral_settings_id, referral_code, rules_checked) {
+    await this._Login(referral_settings_id, referral_code, rules_checked);
+  },
+  async RequestLeaderboard(limit, min_balance, max_balance) {
+    await this._RequestLeaderboard(limit, min_balance, max_balance);
+  },
+  async UpdateScore(score, dynamic_rewards) {
+    await this._UpdateScore(score, dynamic_rewards);
+  },
+  async UpdateUsername(username) {
+    await this._UpdateUsername(username);
+  },
+  async UpdateAvatar(avatar) {
+    await this._UpdateAvatar(avatar);
+  },
+  async CheckIfRegistered() {
+    await this._CheckIfRegistered();
+  },
+  async RequestUserScore(dynamic_rewards_names) {
+    await this._RequestUserScore(dynamic_rewards_names);
+  },
+  async FetchReferralCode() {
+    await this._FetchReferralCode();
+  },
+  async GenerateReferralCode() {
+    await this._GenerateReferralCode();
+  },
+  async RequestReferralStructure() {
+    await this._RequestReferralStructure();
+  },
+  async AddScore(score, map_id, asset_id, addons, dynamic_rewards) {
+    await this._AddScore(score, map_id, asset_id, addons, dynamic_rewards);
+  },
+  async RequestBestScore(map_id) {
+    await this._RequestBestScore(map_id);
+  },
+  async RequestBestScoresLeaderboardByMapId(map_id, limit) {
+    await this._RequestBestScoresLeaderboardByMapId(map_id, limit);
+  },
+  async RequestReferralLeaderboard(
+    ref_leaderboard_id,
+    ref_leaderboard_api_key,
+    limit,
+    min_balance,
+    max_balance
+  ) {
+    await this._RequestReferralLeaderboard(
+      ref_leaderboard_id,
+      ref_leaderboard_api_key,
+      limit,
+      min_balance,
+      max_balance
+    );
+  },
+  async SendContractTransaction(
+    contract_address,
+    abi,
+    function_name,
+    input_data,
+    chain_id
+  ) {
+    await this._SendContractTransaction(
+      contract_address,
+      abi,
+      function_name,
+      input_data,
+      chain_id
+    );
+  },
+  async RequestNumberOfRuns(map_id) {
+    await this._RequestNumberOfRuns(map_id);
+  },
+  CheckReferralCodeFromDeeplink() {
+    this._CheckReferralCodeFromDeeplink();
+  },
+  async ReadContract(
+    contract_address,
+    abi,
+    function_name,
+    input_data,
+    rpc_url
+  ) {
+    await this._ReadContract(
+      contract_address,
+      abi,
+      function_name,
+      input_data,
+      rpc_url
+    );
+  },
+  async RequestUserNfts(query) {
+    await this._RequestUserNfts(query);
+  },
+  async MultipleReadContract(
+    contract_address,
+    abi,
+    function_names,
+    inputs_data,
+    rpc_url
+  ) {
+    await this._MultipleReadContract(
+      contract_address,
+      abi,
+      function_names,
+      inputs_data,
+      rpc_url
+    );
+  },
+  SetTransactionStatus(status) {
+    this._SetTransactionStatus(status);
+  },
+  async SendCrypto(token_address, amount, receiver, chain_id) {
+    await this._SendCrypto(token_address, amount, receiver, chain_id);
+  },
+};
+>>>>>>> fbecc4f9c116325b3fdb3652a3100a1581bc5fc8
 
 }
 
@@ -4852,6 +4974,7 @@ const C3=self.C3,C3X=self.C3X,IBehaviorInstance=self.IBehaviorInstance,Ease=self
 
 // scripts/expTable.js
 {
+<<<<<<< HEAD
 
 const C3 = self.C3;
 
@@ -4948,6 +5071,104 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
+=======
+
+const C3 = self.C3;
+
+function unaryminus(n)
+{
+	return (typeof n === "number" ? -n : n);
+}
+
+function bothNumbers(a, b)
+{
+	return typeof a === "number" && typeof b === "number";
+}
+
+function add(l, r)
+{
+	if (bothNumbers(l, r))
+		return l + r;
+	else
+		return l;
+}
+
+function subtract(l, r)
+{
+	if (bothNumbers(l, r))
+		return l - r;
+	else
+		return l;
+}
+
+function multiply(l, r)
+{
+	if (bothNumbers(l, r))
+		return l * r;
+	else
+		return l;
+}
+
+function divide(l, r)
+{
+	if (bothNumbers(l, r))
+		return l / r;
+	else
+		return l;
+}
+
+function mod(l, r)
+{
+	if (bothNumbers(l, r))
+		return l % r;
+	else
+		return l;
+}
+
+function pow(l, r)
+{
+	if (bothNumbers(l, r))
+		return Math.pow(l, r);
+	else
+		return l;
+}
+
+function and(l, r)
+{
+	if (typeof l === "string" || typeof r === "string")
+	{
+		// & with either side string does string concatenation
+		let lstr, rstr;
+
+		if (typeof l === "number")
+			lstr = (Math.round(l * 1e10) / 1e10).toString();
+		else
+			lstr = l;
+		
+		if (typeof r === "number")
+			rstr = (Math.round(r * 1e10) / 1e10).toString();
+		else
+			rstr = r;
+		
+		return lstr + rstr;
+	}
+	else
+	{
+		// & with neither side a string does logical AND
+		return (l && r ? 1 : 0);
+	}
+}
+
+function or(l, r)
+{
+	if (bothNumbers(l, r))
+		return (l || r ? 1 : 0);
+	else
+		return l;
+}
+
+self.C3_ExpressionFuncs = [
+>>>>>>> fbecc4f9c116325b3fdb3652a3100a1581bc5fc8
 		() => 0,
 		() => 1,
 		() => "GameSounds",
@@ -5264,9 +5485,15 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("players.personal.bestScore");
+<<<<<<< HEAD
 		}
 ];
 
+=======
+		}
+];
+
+>>>>>>> fbecc4f9c116325b3fdb3652a3100a1581bc5fc8
 
 }
 
