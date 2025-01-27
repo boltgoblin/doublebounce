@@ -4960,243 +4960,63 @@ self.C3_ExpressionFuncs = [
 		() => "music",
 		() => 2,
 		() => "",
+		() => "players",
 		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (("<img src='" + v0.GetValue()) + "' height=100% width=100% style='border-radius: 50%'></img>");
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		() => "players.results",
+		() => "Main",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => (n0.ExpObject() + v1.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => and(and(n0.ExpObject(".position"), ". "), n1.ExpObject(".username"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(".bestScore");
+		},
+		() => "players.personal",
+		() => "MyPosition",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => and(and(n0.ExpObject("players.personal.position"), ". "), n1.ExpObject("players.personal.username"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("players.personal.bestScore");
 		},
 		() => "Pressed",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
-		() => 0.3,
-		() => "ChangeName",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
-		},
-		() => "GameFlow",
+		() => "BuyingCoins",
 		() => 0.2,
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 5);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 10);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 20);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => (n0.ExpObject() + f1((-50), 50));
-		},
-		() => "Areas",
-		() => 0.1,
-		() => 720,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() - 720);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			return () => (n0.ExpObject() - n1.ExpInstVar());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => Math.floor(f0(0, v1.GetValue()));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("StartArea", v0.GetValue());
-		},
-		() => "Main",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("Area", v0.GetValue());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => Math.floor(f0(0, 8));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(77, 171, 59, 255);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(244, 62, 62, 255);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(255, 71, 188, 255);
-		},
-		() => 3,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(189, 122, 255, 255);
-		},
-		() => 4,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(243, 247, 29, 255);
-		},
-		() => 5,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(29, 203, 247, 255);
-		},
-		() => 6,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(255, 176, 66, 255);
-		},
-		() => 7,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(66, 255, 198, 255);
-		},
-		() => "Ball and Collisions",
-		() => "Teleport",
-		() => "ResetTeleportation",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(0, 360);
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (v0.GetValue() + (25 * v1.GetValue()));
-		},
-		() => "BallSpawn",
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			const n3 = p._GetNode(3);
-			return () => (n0.ExpInstVar() + ((n1.ExpObject() - n2.ExpObject()) * n3.ExpInstVar()));
-		},
-		() => "BallBouncePad",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() - 180);
-		},
-		() => "BallBounce",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (90 + (10 * v0.GetValue()));
-		},
-		() => "HUD",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => Math.ceil(f0(0, 2));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("Brick", v0.GetValue());
-		},
-		() => "BallInLava",
-		() => "BallPush",
-		() => "Controls",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
-		() => "Effects",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (and("FPS: ", f0()) + "\n");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (and("obj: ", f0()) + "\n");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => and("Pad speed: ", n0.ExpObject(v1.GetValue(), 1));
-		},
-		() => "Pause",
-		() => "Audio",
-		() => "Buttons",
-		() => "Normal",
-		() => 0.4,
-		() => 0.6,
-		() => 0.8,
-		() => "Obstacles",
-		() => "WallCircle",
-		() => "Wall Drag",
-		() => "Bonuses",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(360);
-		},
-		() => "Active",
-		() => "Bonus1",
-		() => 10,
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => (n0.ExpObject() + f1((-5), 5));
-		},
-		() => "Bomb",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => Math.floor((v0.GetValue() / 100));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => (v0.GetValue() + v1.GetValue());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (and("{'coins':", v0.GetValue()) + "}");
-		},
-		() => "LoadGameData",
+		() => "10000000000000000000000",
+		() => "0x35Fec332B1c3f0aada0b5E058540D8e44eF631dd",
+		() => "0xa2e52BA1Cad9e95dB18Af95f2C2D74a577988D3A",
+		() => 8453,
+		() => "ModalWait",
+		() => "719d4e6f-1ed9-419b-8dfd-5d2dd0ac8538",
+		() => 0.5,
 		() => "'coins'",
+		() => "avatar-default.png",
+		() => 0.1,
+		() => "LoadGameData",
 		() => "LoadGameDataLocally",
 		() => "MainMenuButtons",
-		() => 100,
-		() => 80,
-		() => "719d4e6f-1ed9-419b-8dfd-5d2dd0ac8538",
-		() => "avatar-default.png",
-		() => "BoosterHandling",
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => (and("{'coins':", unaryminus(n0.ExpObject(v1.GetValue(), 5))) + "}");
-		},
-		() => "BoosterActive",
-		() => "BoosterTooExpensive",
-		() => "BoosterBuy",
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => and(n0.ExpObject(v1.GetValue(), 5), "¢");
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => n0.ExpObject(v1.GetValue(), 5);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
-		() => "Loading",
-		() => "PadParams",
-		() => "UnlockedItems",
-		() => "Fade",
-		() => 0.5,
+		() => 0.3,
 		() => 1000,
 		p => {
 			const n0 = p._GetNode(0);
@@ -5235,6 +5055,7 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => n0.ExpObject(v1.GetValue(), 2);
 		},
+		() => 5,
 		() => "PadSelected",
 		() => "PadOwned",
 		() => "PadBuy",
@@ -5245,34 +5066,247 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject(v1.GetValue());
 		},
 		() => "PadSelectionButtons",
+		() => "Normal",
 		() => -1,
-		() => "players",
-		() => "players.results",
+		() => "BoosterHandling",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
-			return () => (n0.ExpObject() + v1.GetValue());
+			return () => (and("{'coins':", unaryminus(n0.ExpObject(v1.GetValue(), 5))) + "}");
+		},
+		() => 3,
+		() => "BoosterActive",
+		() => "BoosterTooExpensive",
+		() => "BoosterBuy",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => and(n0.ExpObject(v1.GetValue(), 5), "¢");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject(v1.GetValue(), 5);
+		},
+		() => 100,
+		() => 80,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (("<img src='" + v0.GetValue()) + "' height=100% width=100% style='border-radius: 50%'></img>");
+		},
+		() => "ChangeName",
+		() => "GameFlow",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 5);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 10);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => multiply(n0.ExpObject(v1.GetValue(), 1), 20);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => Math.floor(subtract(25, multiply(25, n0.ExpObject(v1.GetValue(), 2))));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => Math.ceil(add(90, multiply(100, n0.ExpObject(v1.GetValue(), 3))));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => (n0.ExpObject() + f1((-50), 50));
+		},
+		() => "Areas",
+		() => 720,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 720);
 		},
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
-			return () => and(and(n0.ExpObject(".position"), ". "), n1.ExpObject(".username"));
+			return () => (n0.ExpObject() - n1.ExpInstVar());
 		},
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject(".bestScore");
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => Math.floor(f0(0, v1.GetValue()));
 		},
-		() => "players.personal",
-		() => "MyPosition",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("StartArea", v0.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("Area", v0.GetValue());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => Math.floor(f0(0, 8));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(77, 171, 59, 255);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(244, 62, 62, 255);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(255, 71, 188, 255);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(189, 122, 255, 255);
+		},
+		() => 4,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(243, 247, 29, 255);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(29, 203, 247, 255);
+		},
+		() => 6,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(255, 176, 66, 255);
+		},
+		() => 7,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(66, 255, 198, 255);
+		},
+		() => "Ball and Collisions",
+		() => "Teleport",
+		() => "ResetTeleportation",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(0, 360);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (v0.GetValue() + (v1.GetValue() * v2.GetValue()));
+		},
+		() => "BallSpawn",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
-			return () => and(and(n0.ExpObject("players.personal.position"), ". "), n1.ExpObject("players.personal.username"));
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => (n0.ExpInstVar() + ((n1.ExpObject() - n2.ExpObject()) * n3.ExpInstVar()));
+		},
+		() => "BallBouncePad",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 180);
+		},
+		() => "BallBounce",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + (10 * v1.GetValue()));
+		},
+		() => "HUD",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => Math.ceil(f0(0, 2));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("Brick", v0.GetValue());
+		},
+		() => "BallInLava",
+		() => "BallPush",
+		() => "Controls",
+		() => "Effects",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (and("FPS: ", f0()) + "\n");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (and("obj: ", f0()) + "\n");
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("players.personal.bestScore");
-		}
+			const v1 = p._GetNode(1).GetVar();
+			return () => (and("Pad speed: ", n0.ExpObject(v1.GetValue(), 1)) + "\n");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (and((and("at2: ", n0.ExpObject(v1.GetValue(), 2)) + ", BSPL: "), v2.GetValue()) + "\n");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (and((and("at3: ", n0.ExpObject(v1.GetValue(), 3)) + ", pts: "), v2.GetValue()) + "\n");
+		},
+		() => "Pause",
+		() => "Audio",
+		() => "Buttons",
+		() => 0.4,
+		() => 0.6,
+		() => 0.8,
+		() => "Obstacles",
+		() => "WallCircle",
+		() => "Wall Drag",
+		() => "Bonuses",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(360);
+		},
+		() => "Active",
+		() => "Bonus1",
+		() => 10,
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => (n0.ExpObject() + f1((-5), 5));
+		},
+		() => "Bomb",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (90 + (10 * v0.GetValue()));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => Math.floor((v0.GetValue() / 100));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + v1.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (and("{'coins':", v0.GetValue()) + "}");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		() => "Loading",
+		() => "PadParams",
+		() => "UnlockedItems",
+		() => "Fade"
 ];
 
 

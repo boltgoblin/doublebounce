@@ -3,14 +3,14 @@
 
 const scriptsInEvents = {
 
-	async Egameplay_Event2_Act7(runtime, localVars)
+	async Egameplay_Event2_Act8(runtime, localVars)
 	{
-		document.body.style.backgroundColor = "#556eaa";
+		document.body.style.backgroundColor = "#3c4e78";
 	},
 
 	async Egameplay_Event7_Act1(runtime, localVars)
 	{
-		document.body.style.backgroundColor = "#283253";
+		document.body.style.backgroundColor = "#181f2f";
 	}
 
 };
