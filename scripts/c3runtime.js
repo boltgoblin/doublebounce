@@ -5025,10 +5025,13 @@ self.C3_ExpressionFuncs = [
 		() => "BuyingCoins",
 		() => 100,
 		() => 0.2,
-		() => "100000000000000",
+		() => "350000000000000000000000",
 		() => 500,
+		() => "1250000000000000000000000",
 		() => 1000,
+		() => "3000000000000000000000000",
 		() => 5000,
+		() => "10000000000000000000000000",
 		() => "ModalWait",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -5043,14 +5046,14 @@ self.C3_ExpressionFuncs = [
 		() => "avatar-default.png",
 		() => 0.1,
 		() => "LoadGameData",
-		() => "LoadGameDataLocally",
-		() => "MainMenuButtons",
-		() => 0.3,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => n0.ExpObject(v1.GetValue(), 0);
 		},
+		() => "LoadGameDataLocally",
+		() => "MainMenuButtons",
+		() => 0.3,
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -5070,11 +5073,6 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => n0.ExpObject(v1.GetValue(), 4);
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			return () => n0.ExpObject(v1.GetValue());
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -5340,8 +5338,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Loading",
 		() => "PadParams",
-		() => "Items_Available",
-		() => "Items_MaxMint",
 		() => "balanceOfBatch",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -5377,12 +5373,6 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			const v2 = p._GetNode(2).GetVar();
 			return () => ((f0(n1.ExpObject()) + 1) - v2.GetValue());
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => and((and(and(n0.ExpObject(), "x"), n1.ExpObject()) + ": "), n2.ExpObject());
 		}
 ];
 
